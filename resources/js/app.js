@@ -9,9 +9,10 @@ import '@quasar/extras/material-icons/material-icons.css'
 import "@quasar/extras/mdi-v6/mdi-v6.css";
 import "quasar/dist/quasar.css";
 import quasarIconSet from "quasar/icon-set/svg-mdi-v6";
-
+import { createPinia } from 'pinia'
 import {Quasar} from "quasar";
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -29,6 +30,7 @@ createInertiaApp({
                     },
                 }
             })
+            .use(createPinia())
             .mount(el);
     },
     progress: {
