@@ -14,7 +14,7 @@
         @request="onRequest"
     >
       <template v-slot:top-right>
-        <q-input borderless dense  debounce="400" v-model="filters.queryFilter" placeholder="Search"  @update:model-value="defaultFetchData">
+        <q-input borderless dense debounce="400" v-model="filters.queryFilter" placeholder="Search" @update:model-value="defaultFetchData">
           <template v-slot:append>
             <q-icon name="search"/>
           </template>
@@ -38,14 +38,15 @@ const props = defineProps({
   // props
 })
 
-const {defaultFetchData, editData, createData, updateData, deleteData,onRequest} = props.store()
-const {data, formData, stateName, method, formRef, formModal, filters,pagination,loading} = storeToRefs(props.store())
+const {
+  fetchData, editData, createData, updateData, deleteData, onRequest,
+  data, formData, stateName, method, formRef, formModal, filters, pagination, loading
+} = useCounterStore()
 
 
-onMounted(()=>{
-  console.log(props.store)
-  defaultFetchData()
-  
+onMounted(() => {
+  fetchData()
+
 })
 const columns = [
   {

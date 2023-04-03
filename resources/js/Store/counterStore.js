@@ -24,7 +24,10 @@ export const useCounterStore = defineStore("counter", () => {
         editData,
         updateData,
         onRequest,
+        stateUrl
     } = useCrudComposable();
+    stateUrl.value = "users";
+
 
     return {
         data,

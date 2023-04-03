@@ -1,11 +1,11 @@
 import axios from "axios";
-import {computed, ref} from "vue";
-import {LocalStorage} from "quasar";
-import {usePage} from '@inertiajs/vue3'
-import {useCommonState} from "./useCommonState";
+import { computed, ref } from "vue";
+import { LocalStorage } from "quasar";
+import { usePage } from '@inertiajs/vue3'
+import { useCommonState } from "./useCommonState";
 
 const user = computed(() => usePage()?.props?.app)
-// const apiUrl = user.value.api_url;
+    // const apiUrl = user.value.api_url;
 console.log(user.value)
 const apiUrl = 'api';
 
@@ -41,17 +41,17 @@ export function useCommonAction() {
                 sortBy: pagination.value.sortBy,
                 descending: pagination.value.descending,
                 query: query.value,
-                filters: JSON.stringify(this.filters)
+                filters: JSON.stringify(filters.value)
             };
             axios({
-                    method: "get",
-                    url: `${apiUrl}/${stateUrl.value}`,
-                    params: params,
-                    headers: {
-                        'Authorization': `Bearer ${LocalStorage.getItem('access_token')}`
-                    }
+                method: "get",
+                url: `${apiUrl}/${stateUrl.value}`,
+                params: params,
+                headers: {
+                    'Authorization': `Bearer ${LocalStorage.getItem('access_token')}`
                 }
-            ).then((response) => {
+            }).then((response) => {
+                console.log(response)
                 data.value = response.data.data;
                 pagination.value.totalNumber = response.data.total;
                 loading.value = false;
@@ -75,14 +75,13 @@ export function useCommonAction() {
                 sortBy: pagination.value.sortBy,
                 descending: pagination.value.descending,
                 query: query.value,
-                filters: JSON.stringify(this.filters)
+                filters: JSON.stringify(filters.value)
             };
             axios({
-                    method: "get",
-                    url: `${apiUrl}/${url}`,
-                    params: params,
-                }
-            ).then((response) => {
+                method: "get",
+                url: `${apiUrl}/${url}`,
+                params: params,
+            }).then((response) => {
                 data.value = response.data.data;
                 pagination.value.totalNumber = response.data.total;
                 resolve(response);
@@ -171,6 +170,3 @@ export function useCommonAction() {
         onRequest,
     }
 }
-
-
-

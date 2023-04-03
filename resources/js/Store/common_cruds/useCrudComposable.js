@@ -20,6 +20,7 @@ export function useCrudComposable() {
         submittingAndNew,
         errors,
         urlForFetchPaged,
+        stateUrl
     } = useCommonState()
     const {} = useCommonGetters()
     const {
@@ -49,6 +50,7 @@ export function useCrudComposable() {
         submittingAndNew,
         errors,
         urlForFetchPaged,
+        stateUrl,
 
         fetchData,
         fetchPageByUrl,
