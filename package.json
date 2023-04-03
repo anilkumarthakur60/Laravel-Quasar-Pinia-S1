@@ -24,6 +24,8 @@
     "vue": "^3.2.31"
   },
   "dependencies": {
-    "pinia": "^2.0.33"
+    "lodash": "^4.17.21",
+    "pinia": "^2.0.33",
+    "vue-router": "^4.1.6"
   }
 }

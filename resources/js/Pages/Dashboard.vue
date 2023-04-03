@@ -45,7 +45,18 @@
 
 
 <script setup>
+
 import {ref} from "vue";
 import AppLayout from '@/Layouts/AppLayout.vue';
+import {useCounterStore} from "../Store/counterStore";
+import {usePage} from "@inertiajs/vue3";
 const tab = ref('mails');
+import {storeToRefs} from "pinia";
+
+
+
+
+const {defaultFetchData, editData, createData, updateData, deleteData} = useCounterStore()
+const {data, formData, stateName, method, formRef, formModal, filters} = storeToRefs(useCounterStore())
+
 </script>
