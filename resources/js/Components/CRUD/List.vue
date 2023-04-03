@@ -30,10 +30,22 @@ import {ref, onMounted} from 'vue'
 import {useCounterStore} from "../../Store/counterStore";
 import {storeToRefs} from "pinia";
 
-const {defaultFetchData, editData, createData, updateData, deleteData,onRequest} = useCounterStore()
-const {data, formData, stateName, method, formRef, formModal, filters,pagination,loading} = storeToRefs(useCounterStore())
+const props = defineProps({
+  'store': {
+    type: Function,
+    required: true
+  }
+  // props
+})
+
+const {defaultFetchData, editData, createData, updateData, deleteData,onRequest} = props.store()
+const {data, formData, stateName, method, formRef, formModal, filters,pagination,loading} = storeToRefs(props.store())
+
+
 onMounted(()=>{
+  console.log(props.store)
   defaultFetchData()
+  
 })
 const columns = [
   {

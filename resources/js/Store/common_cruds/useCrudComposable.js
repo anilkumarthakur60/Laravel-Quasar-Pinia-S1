@@ -1,7 +1,10 @@
-import { defineStore } from "pinia";
-import { useCrudComposable } from "./common_cruds/useCrudComposable";
+import {useCommonState} from "./useCommonState";
+import {useCommonGetters} from "./useCommonGetters";
+import {useCommonAction} from "./useCommonAction";
 
-export const useCounterStore = defineStore("counter", () => {
+export function useCrudComposable() {
+
+
     const {
         data,
         formData,
@@ -17,6 +20,10 @@ export const useCounterStore = defineStore("counter", () => {
         submittingAndNew,
         errors,
         urlForFetchPaged,
+    } = useCommonState()
+    const {} = useCommonGetters()
+    const {
+
         fetchData,
         fetchPageByUrl,
         createData,
@@ -24,7 +31,8 @@ export const useCounterStore = defineStore("counter", () => {
         editData,
         updateData,
         onRequest,
-    } = useCrudComposable();
+    } = useCommonAction()
+
 
     return {
         data,
@@ -49,5 +57,6 @@ export const useCounterStore = defineStore("counter", () => {
         editData,
         updateData,
         onRequest,
-    };
-});
+    }
+
+}
