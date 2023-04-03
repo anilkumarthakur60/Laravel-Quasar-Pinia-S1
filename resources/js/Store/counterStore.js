@@ -10,7 +10,7 @@ export const useCounterStore = defineStore({
     id: 'counterStore',
     state: () => ({
         ..._.cloneDeep(commonState),
-        stateUrl: "counters",
+        stateUrl: "users",
     }),
     getters: {
         ...commonGetters

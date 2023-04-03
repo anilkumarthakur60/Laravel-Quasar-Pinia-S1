@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Anil\FastApiCrud\Traits\Crud;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,6 +19,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use Crud;
 
     /**
      * The attributes that are mass assignable.
@@ -58,4 +61,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function scopeQueryFilter(Builder $query,$search): Builder
+    {
+        if (empty($query)){
+            return $query;
+        }
+        return $query->likeWhere(['name','email'],$search);
+    }
 }

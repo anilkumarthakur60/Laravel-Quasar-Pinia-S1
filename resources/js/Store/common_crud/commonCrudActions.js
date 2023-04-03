@@ -6,7 +6,7 @@ import { usePage } from '@inertiajs/vue3'
 const user = computed(() => usePage()?.props?.app)
 // const apiUrl = user.value.api_url;
 console.log(user.value)
-const apiUrl = 'askljaks';
+const apiUrl = 'api';
 
 
 export const commonCrudActions = {
@@ -35,6 +35,7 @@ export const commonCrudActions = {
       ).then((response) => {
         this.data = response.data.data;
         this.pagination.totalNumber = response.data.total;
+        this.loading = false;
         resolve(response);
       }).catch((error) => {
         console.log(error);
