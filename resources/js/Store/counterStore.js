@@ -27,6 +27,7 @@ export const useCounterStore = defineStore("counter", () => {
         stateUrl
     } = useCrudComposable();
     stateUrl.value = "users";
+    storeName.value = "counter";
 
 
     return {

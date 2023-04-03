@@ -51,8 +51,9 @@ export function useCommonAction() {
                     'Authorization': `Bearer ${LocalStorage.getItem('access_token')}`
                 }
             }).then((response) => {
-                console.log(response)
+                console.log(response.data.data)
                 data.value = response.data.data;
+                console.log(data.value)
                 pagination.value.totalNumber = response.data.total;
                 loading.value = false;
                 resolve(response);

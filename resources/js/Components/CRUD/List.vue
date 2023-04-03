@@ -45,7 +45,9 @@ const {
 
 
 onMounted(() => {
-  fetchData()
+  fetchData().then((res)=>{
+    data.value=res.data.data
+  })
 
 })
 const columns = [
