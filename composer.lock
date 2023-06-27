@@ -4,34 +4,42 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc7377617db0b953b6912c9967803dad",
+    "content-hash": "bdb7e3a2bc2fa900848f29d1f50b284f",
     "packages": [
         {
             "name": "anil/fast-api-crud",
-            "version": "v0.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anilkumarthakur60/Fast-Api-Crud.git",
-                "reference": "7084648917ac47e7ebe502e93dad3f631c5ae872"
+                "reference": "dc84c9781b1209fad0e3f8e3112bd63738c3e127"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anilkumarthakur60/Fast-Api-Crud/zipball/7084648917ac47e7ebe502e93dad3f631c5ae872",
-                "reference": "7084648917ac47e7ebe502e93dad3f631c5ae872",
+                "url": "https://api.github.com/repos/anilkumarthakur60/Fast-Api-Crud/zipball/dc84c9781b1209fad0e3f8e3112bd63738c3e127",
+                "reference": "dc84c9781b1209fad0e3f8e3112bd63738c3e127",
                 "shasum": ""
             },
             "require": {
-                "spatie/laravel-permission": "6.x-dev|5.*|4.*|3.*"
+                "illuminate/auth": "10.*|9.*|8.*|7.*|6.*|5.*",
+                "illuminate/http": "10.*|9.*|8.*|7.*|6.*|5.*",
+                "illuminate/pagination": "10.*|9.*|8.*|7.*|6.*|5.*|4.*",
+                "illuminate/routing": "10.*|9.*|8.*|7.*|6.*|5.*",
+                "illuminate/support": "10.*|9.*|8.*|7.*|6.*|5.*",
+                "spatie/laravel-permission": "6.x-dev|5.*|4.*|3.*|2.*|1.*"
             },
             "type": "library",
             "extra": {
-                "fast-api-crud": {
+                "laravel": {
                     "providers": [
-                        "Anil\\FastApiCrud\\providers\\ApiCrudServiceProvider\\"
+                        "Anil\\FastApiCrud\\Providers\\ApiCrudServiceProvider"
                     ]
                 }
             },
             "autoload": {
+                "files": [
+                    "src/Helpers/fastApiCrud.php"
+                ],
                 "psr-4": {
                     "Anil\\FastApiCrud\\": "src/"
                 }
@@ -60,9 +68,9 @@
             ],
             "support": {
                 "issues": "https://github.com/anilkumarthakur60/Fast-Api-Crud/issues",
-                "source": "https://github.com/anilkumarthakur60/Fast-Api-Crud/tree/v0.0.1"
+                "source": "https://github.com/anilkumarthakur60/Fast-Api-Crud/tree/v2.0.2"
             },
-            "time": "2023-03-31T21:31:33+00:00"
+            "time": "2023-05-30T07:03:56+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -8649,5 +8657,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
